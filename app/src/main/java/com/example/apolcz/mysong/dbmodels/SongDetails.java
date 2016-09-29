@@ -4,6 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -17,10 +18,11 @@ public class SongDetails implements Serializable {
     @DatabaseField(columnName = "song_name")
     public String songName;
 
-//    @DatabaseField(dataType = DataType.SERIALIZABLE, columnName = "song_notes_list")
-//    public SerializedList<SongNoteDetails> songNotesList;
-@ForeignCollectionField(eager = true)
-private Collection<NoteDetails> songNotesList;
+    @ForeignCollectionField(eager = true)
+    public ArrayList<SongNoteDetails> songNotesList;
+
+//@ForeignCollectionField(eager = true)
+//private Collection<NoteDetails> songNotesList;
 
 //    public ArrayList<SongNoteDetails> getSongNotesList()
 //    {
@@ -36,15 +38,15 @@ private Collection<NoteDetails> songNotesList;
         return songName;
     }
 
-    public SongDetails(){
-        this.songNotesList = new Collection<SongDetails>() {
+    public SongDetails() {
+        this.songNotesList = new ArrayList<SongNoteDetails>() {
         };
     }
+}
 
 //    public SongDetails(int songId, String songName, ArrayList<SongNoteDetails> songNotesList){
 //        this.songId = songId;
 //        this.songName = songName;
 //        this.songNotesList = songNotesList;
 //    }
-}
 

@@ -11,8 +11,13 @@ public class NoteDetails implements Serializable {
 
     @DatabaseField(generatedId = true, columnName = "note_id")
     public int noteId;
+    @DatabaseField(columnName = "note_color")
+    public String noteColor;
     @DatabaseField( columnName = "note_name")
     public String noteName;
+
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh= true)
+    public SongNoteDetails songNoteDetails;
 
     public String getNoteName() {
         return noteName;
@@ -22,16 +27,17 @@ public class NoteDetails implements Serializable {
         return noteColor;
     }
 
-    @DatabaseField(columnName = "note_color")
-    public String noteColor;
+
 
     public NoteDetails() {
+
     }
 
     public NoteDetails(int noteId, String noteName, String noteColor) {
         this.noteColor = noteColor;
         this.noteId = noteId;
         this.noteName = noteName;
+
     }
 
 

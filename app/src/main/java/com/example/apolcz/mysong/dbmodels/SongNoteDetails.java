@@ -2,6 +2,7 @@ package com.example.apolcz.mysong.dbmodels;
 
         import com.example.apolcz.mysong.dbmodels.NoteDetails;
         import com.j256.ormlite.field.DatabaseField;
+        import com.j256.ormlite.field.*;
 
         import java.io.Serializable;
         import java.util.List;
@@ -11,11 +12,20 @@ package com.example.apolcz.mysong.dbmodels;
  */
 public class SongNoteDetails implements Serializable {
 
+    @DatabaseField(generatedId=true, columnName = "song_note_id")
+    private int songNoteId;
 
-
-    public NoteDetails note;
+    @DatabaseField(columnName = "minutes")
     public int minutes;
+
+    @DatabaseField(columnName = "seconds")
     public int seconds;
+
+    @DatabaseField(canBeNull = false, foreign = true, foreignAutoCreate = true)
+    public NoteDetails note;
+
+    @DatabaseField(foreign = true, foreignAutoRefresh= true, foreignAutoCreate = true)
+    public SongDetails songDetails;
 
     public SongNoteDetails(){}
 

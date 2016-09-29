@@ -7,6 +7,7 @@ import android.util.Log;
 import com.example.apolcz.mysong.R;
 import com.example.apolcz.mysong.dbmodels.NoteDetails;
 import com.example.apolcz.mysong.dbmodels.SongDetails;
+import com.example.apolcz.mysong.dbmodels.SongNoteDetails;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
@@ -22,8 +23,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "notedir.db";
     private static final int DATABASE_VERSION = 1;
 
-    private Dao<NoteDetails, Integer> noteDao;
-    private Dao<SongDetails, Integer> songDao;
+    private Dao<NoteDetails, Integer> noteDao = null;
+    private Dao<SongDetails, Integer> songDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
@@ -36,7 +37,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             // Create tables. This onCreate() method will be invoked only once of the application life time i.e. the first time when the application starts.
             TableUtils.createTable(connectionSource, NoteDetails.class);
             TableUtils.createTable(connectionSource, SongDetails.class);
-           // TableUtils.createTable(connectionSource, SongDetails.class);
+            TableUtils.createTable(connectionSource, SongNoteDetails.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Unable to create databases", e);

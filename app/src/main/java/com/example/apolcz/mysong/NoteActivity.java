@@ -60,7 +60,6 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
                 final Dao<NoteDetails, Integer> noteDao = getHelper().getNoteDao();
                 noteDao.create(noteDetails);
                 reset();
-
             } catch (SQLException e) {
                 e.printStackTrace();
             }
