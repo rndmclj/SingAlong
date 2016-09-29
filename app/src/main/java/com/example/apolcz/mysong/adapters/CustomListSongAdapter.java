@@ -60,7 +60,7 @@ public class CustomListSongAdapter extends ArrayAdapter {
 
     private List<String> getSongNamesValues(List<SongDetails> songList) {
         List<String> names = new ArrayList<>();
-        for (int i = 0; i < names.size(); i++) {
+        for (int i = 0; i < songList.size(); i++) {
             names.add(i, songList.get(i).getSongName());
         }
         return names;

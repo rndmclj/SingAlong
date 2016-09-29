@@ -21,7 +21,7 @@ public class SongNoteDetails implements Serializable {
     @DatabaseField(columnName = "seconds")
     public int seconds;
 
-    @DatabaseField(canBeNull = false, foreign = true, foreignAutoCreate = true)
+    @DatabaseField(canBeNull = false, foreign = true, foreignAutoRefresh= true)
     public NoteDetails note;
 
     @DatabaseField(foreign = true, foreignAutoRefresh= true, foreignAutoCreate = true)

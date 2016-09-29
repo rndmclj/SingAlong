@@ -58,13 +58,27 @@ public class SongActivity extends AppCompatActivity implements View.OnClickListe
         saveSong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                song.songNotesList.add(getSongNoteDetails(song));
+                SongNoteDetails songNote = getSongNoteDetails(song);
+                song.songNotesList.add(songNote);
+
                 try {
                     final Dao<SongDetails, Integer> songDao = getHelper().getSongDao();
                     songDao.create(song);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
+                for (SongNoteDetails _songNote : song.songNotesList) {
+                    try {
+                        final Dao<SongNoteDetails, Integer> songNoteDao = getHelper().getSongNoteDao();
+                        songNoteDao.create(_songNote);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                Intent intent = new Intent(SongActivity.this, ViewSongActivity.class);
+                startActivity(intent);
             };
         });
         nextNote.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +109,7 @@ public class SongActivity extends AppCompatActivity implements View.OnClickListe
         songNoteDetails.minutes = (int) minuteDropdown.getSelectedItem();
         songNoteDetails.seconds = (int) secondsDropdown.getSelectedItem();
         songNoteDetails.songDetails = songDetails;
+        songNoteDetails.note.songNoteDetails = songNoteDetails;
         return songNoteDetails;
     }
 

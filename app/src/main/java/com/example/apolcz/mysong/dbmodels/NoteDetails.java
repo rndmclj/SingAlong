@@ -16,7 +16,7 @@ public class NoteDetails implements Serializable {
     @DatabaseField( columnName = "note_name")
     public String noteName;
 
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh= true)
+    @DatabaseField(foreign = true, foreignAutoRefresh= true)
     public SongNoteDetails songNoteDetails;
 
     public String getNoteName() {

@@ -25,6 +25,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private Dao<NoteDetails, Integer> noteDao = null;
     private Dao<SongDetails, Integer> songDao = null;
+    private Dao<SongNoteDetails, Integer> songNoteDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
@@ -73,5 +74,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             songDao = getDao(SongDetails.class);
         }
         return songDao ;
+    }
+
+    public Dao<SongNoteDetails, Integer> getSongNoteDao() throws SQLException {
+        if (songNoteDao == null) {
+            songNoteDao = getDao(SongNoteDetails.class);
+        }
+        return songNoteDao ;
     }
 }
