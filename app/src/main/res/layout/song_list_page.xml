@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ListView
+        android:id="@+id/songList"
+        android:layout_width="100dp"
+        android:layout_column="0"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Al"></ListView>
+
+
+</TableLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.example.apolcz.mysong.NoteActivity">
+
+    <TextView
+        android:id="@+id/noteTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="60px"
+        android:hint="Song Title"
+        />
+    <Spinner
+        android:id="@+id/notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/noteTitle"
+        />
+
+    <Spinner
+        android:id="@+id/minuteTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notes"
+        />
+
+    <Spinner
+        android:id="@+id/secondsTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/minuteTime"
+        android:layout_alignParentRight="true" />
+
+    <Button
+        android:id="@+id/saveSong"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:text="Save Song"
+        />
+    <Button
+        android:id="@+id/nextNote"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_above="@id/saveSong"
+        android:text="Add Note"
+        />
+
+</RelativeLayout>

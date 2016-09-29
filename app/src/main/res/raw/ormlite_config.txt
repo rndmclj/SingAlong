@@ -1,0 +1,59 @@
+# --table-start--
+dataClass=com.example.apolcz.mysong.dbmodels.NoteDetails
+tableName=note_details
+# --table-fields-start--
+# --field-start--
+fieldName=noteId
+columnName=note_id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=noteName
+columnName=note_name
+# --field-end--
+# --field-start--
+fieldName=noteColor
+columnName=note_color
+# --field-end--
+# --table-fields-end--
+# --table-end--
+
+# --table-start--
+dataClass=com.example.apolcz.mysong.dbmodels.NoteDetails
+tableName=note_details
+# --table-fields-start--
+# --field-start--
+fieldName=noteId
+columnName=note_id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=noteName
+columnName=note_name
+# --field-end--
+# --field-start--
+fieldName=noteColor
+columnName=note_color
+# --field-end--
+# --table-fields-end--
+# --table-end--
+
+# --table-start--
+dataClass=com.example.apolcz.mysong.dbmodels.SongDetails
+tableName=song_details
+# --table-fields-start--
+# --field-start--
+fieldName=songId
+columnName=song_id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=songName
+columnName=song_name
+# --field-end--
+# --field-start--
+fieldName=songNotesList
+columnName=song_notes_list
+# --field-end--
+# --table-fields-end--
+# --table-end--
