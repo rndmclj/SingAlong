@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -27,12 +28,17 @@ public class ViewSongActivity extends AppCompatActivity {
     CustomListSongAdapter customListAdapter;
     private DatabaseHelper databaseHelper = null;
     ListView songView;
+    Button playSong;
+    SongDetails selectedSong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.song_list_page);
         songView = (ListView) findViewById(R.id.songList);
+        playSong = (Button) findViewById(R.id.playSong);
+        songView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        //songView.setSelector(Drawable selector);
         try {
             getSongsDB();
         }
@@ -41,6 +47,23 @@ public class ViewSongActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        playSong.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+             //String songName = selectedSong.getSongName();
+                Intent intent = new Intent(ViewSongActivity.this, PlayNoteActivity.class);
+                intent.putExtra("SongDetails", selectedSong);
+                intent.putExtra("NoteIndex", 0);
+                startActivity(intent);
+            }
+        });
+        songView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,long arg3) {
+                selectedSong  = songList.get(position);
+            }
+        });
     }
 
     private void getSongsDB() throws SQLException, InterruptedException {

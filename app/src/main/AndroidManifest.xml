@@ -19,5 +19,6 @@
         <activity android:name = ".ViewNoteActivity"></activity>
         <activity android:name = ".ViewSongActivity"></activity>
         <activity android:name = ".SongActivity"></activity>
+        <activity android:name = ".PlayNoteActivity"></activity>
     </application>
 </manifest>
