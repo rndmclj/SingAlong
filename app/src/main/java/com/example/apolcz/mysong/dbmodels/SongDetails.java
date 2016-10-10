@@ -1,6 +1,5 @@
 package com.example.apolcz.mysong.dbmodels;
 
-import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 
@@ -22,18 +21,6 @@ public class SongDetails implements Serializable {
     @ForeignCollectionField(eager = true, foreignFieldName = "songDetails")
     public Collection<SongNoteDetails> songNotesList;
 
-//@ForeignCollectionField(eager = true)
-//private Collection<NoteDetails> songNotesList;
-
-//    public ArrayList<SongNoteDetails> getSongNotesList()
-//    {
-//        return songNotesList;
-//    }
-//
-//    public void addToSongNotesList(SongNoteDetails songNote)
-//    {
-//        songNotesList.add(songNote);
-//    }
 
     public String getSongName() {
         return songName;
@@ -44,10 +31,4 @@ public class SongDetails implements Serializable {
         };
     }
 }
-
-//    public SongDetails(int songId, String songName, ArrayList<SongNoteDetails> songNotesList){
-//        this.songId = songId;
-//        this.songName = songName;
-//        this.songNotesList = songNotesList;
-//    }
 

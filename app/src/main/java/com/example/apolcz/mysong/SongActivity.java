@@ -51,7 +51,7 @@ public class SongActivity extends AppCompatActivity implements View.OnClickListe
         PopulateTimeSpinner(secondsDropdown);
 
         //final Bundle extras = getIntent().getExtras();
-        final SongDetails song = (SongDetails) getIntent().getSerializableExtra("SongDetails"); //extras.getString("songTitle");
+        final SongDetails song = (SongDetails) getIntent().getSerializableExtra("SongDetails");
         String songTitleValue = song.songName;
         songTitle.setText(songTitleValue);
 
@@ -89,6 +89,7 @@ public class SongActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(SongActivity.this, SongActivity.class);
                 intent.putExtra("SongDetails", song);
                 startActivity(intent);
+                finish();
             };
         });
 
@@ -116,7 +117,7 @@ public class SongActivity extends AppCompatActivity implements View.OnClickListe
     private void PopulateTimeSpinner(Spinner timeSpinner) {
         Integer[] numbers = new Integer[60];
         for (int i = 0; i<numbers.length; i++) {
-            numbers[i] = i + 1;
+            numbers[i] = i ;
         }
         ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, numbers);
         timeSpinner.setAdapter(adapter);

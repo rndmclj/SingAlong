@@ -2,6 +2,7 @@ package com.example.apolcz.mysong;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
@@ -24,12 +25,12 @@ public class PlayNoteActivity extends AppCompatActivity {
         setContentView(R.layout.note_to_play);
         noteToPlay = ((TextView) findViewById(R.id.playNote));
 
-        final SongDetails song = (SongDetails) getIntent().getSerializableExtra("SongDetails");
+        final ArrayList<SongNoteDetails> songNotes = (ArrayList<SongNoteDetails>) getIntent().getSerializableExtra("SongNotes");
         final int noteIndex = (int) getIntent().getSerializableExtra("NoteIndex");
 
-        // !! create the new array list in viewSongActivity
-        ArrayList<SongNoteDetails> songNotes = new ArrayList<SongNoteDetails>(song.songNotesList);
         if (songNotes.size() <= noteIndex) {
+            Intent intent = new Intent(PlayNoteActivity.this, ViewSongActivity.class);
+            startActivity(intent);
             return;
         }
 
@@ -40,12 +41,16 @@ public class PlayNoteActivity extends AppCompatActivity {
         noteToPlay.setText(note.getNoteName());
         noteToPlay.setBackgroundColor(note.getNoteColor().hashCode());
 
-        int index = noteIndex + 1;
+        final int index = noteIndex + 1;
 
-        Intent intent = new Intent(PlayNoteActivity.this, PlayNoteActivity.class);
-        intent.putExtra("SongDetails", song);
-        intent.putExtra("NoteIndex", index);
-        startActivity(intent);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(PlayNoteActivity.this, PlayNoteActivity.class);
+                intent.putExtra("SongNotes", songNotes);
+                intent.putExtra("NoteIndex", index);
+                startActivity(intent);
+            }
+        }, songNote.seconds*1000+songNote.minutes*60*1000);
     }
-
 }

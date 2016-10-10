@@ -15,7 +15,6 @@ public class NoteDetails implements Serializable {
     public String noteColor;
     @DatabaseField( columnName = "note_name")
     public String noteName;
-
     @DatabaseField(foreign = true, foreignAutoRefresh= true)
     public SongNoteDetails songNoteDetails;
 
@@ -26,8 +25,6 @@ public class NoteDetails implements Serializable {
     public String getNoteColor() {
         return noteColor;
     }
-
-
 
     public NoteDetails() {
 

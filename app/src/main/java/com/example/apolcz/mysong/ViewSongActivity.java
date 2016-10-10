@@ -13,10 +13,12 @@ import com.example.apolcz.mysong.adapters.CustomListSongAdapter;
 import com.example.apolcz.mysong.db.DatabaseHelper;
 import com.example.apolcz.mysong.dbmodels.NoteDetails;
 import com.example.apolcz.mysong.dbmodels.SongDetails;
+import com.example.apolcz.mysong.dbmodels.SongNoteDetails;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,7 +54,7 @@ public class ViewSongActivity extends AppCompatActivity {
             public void onClick(View v){
              //String songName = selectedSong.getSongName();
                 Intent intent = new Intent(ViewSongActivity.this, PlayNoteActivity.class);
-                intent.putExtra("SongDetails", selectedSong);
+                intent.putExtra("SongNotes", new ArrayList<SongNoteDetails>(selectedSong.songNotesList));
                 intent.putExtra("NoteIndex", 0);
                 startActivity(intent);
             }
