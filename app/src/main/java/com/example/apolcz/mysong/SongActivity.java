@@ -50,7 +50,6 @@ public class SongActivity extends AppCompatActivity implements View.OnClickListe
         PopulateTimeSpinner(minuteDropdown);
         PopulateTimeSpinner(secondsDropdown);
 
-        //final Bundle extras = getIntent().getExtras();
         final SongDetails song = (SongDetails) getIntent().getSerializableExtra("SongDetails");
         String songTitleValue = song.songName;
         songTitle.setText(songTitleValue);
@@ -99,8 +98,6 @@ public class SongActivity extends AppCompatActivity implements View.OnClickListe
         catch (SQLException | InterruptedException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @NonNull
@@ -134,8 +131,6 @@ public class SongActivity extends AppCompatActivity implements View.OnClickListe
                 e.printStackTrace();
             }
 
-            // save last note in db!
-
             Intent intent = new Intent(SongActivity.this, HomePageActivity.class);
             startActivity(intent);
     }
@@ -155,5 +150,4 @@ public class SongActivity extends AppCompatActivity implements View.OnClickListe
             noteView.setAdapter(notesDropdown);
         }
     }
-
 }

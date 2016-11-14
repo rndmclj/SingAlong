@@ -38,7 +38,7 @@ public class HomePageActivity extends AppCompatActivity {
         loadSongsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(HomePageActivity.this, ViewSongActivity.class);
+                Intent intent = new Intent(HomePageActivity.this, TestSoundActivity.class);
                 startActivity(intent);
             }
         });

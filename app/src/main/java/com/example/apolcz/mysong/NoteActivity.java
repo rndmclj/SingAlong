@@ -38,12 +38,12 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
 
         List<String> spinnerArray =  new ArrayList<>();
 
-        spinnerArray.add("#00ffff");
-        spinnerArray.add("#ccff99");
-        spinnerArray.add("#ff9900");
-        spinnerArray.add("#ff00ff");
-        spinnerArray.add("#ff9900");
-        spinnerArray.add("#00cc00");
+        spinnerArray.add("#FF0000");
+        spinnerArray.add("#FFFF00");
+        spinnerArray.add("#5DADE2");
+//        spinnerArray.add("#ff00ff");
+//        spinnerArray.add("#ff9900");
+//        spinnerArray.add("#00cc00");
 
         CustomSpinnerAdapter customAdapter = new CustomSpinnerAdapter(spinnerArray,getApplicationContext());
         noteColorPicker.setAdapter(customAdapter);

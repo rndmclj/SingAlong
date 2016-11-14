@@ -73,8 +73,6 @@ public class ViewNoteActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-
-
     @Override
     public void onResume() {
         super.onResume();

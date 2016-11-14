@@ -1,9 +1,13 @@
 package com.example.apolcz.mysong;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Display;
+import android.view.Gravity;
 import android.widget.TextView;
 
 import com.example.apolcz.mysong.dbmodels.NoteDetails;
@@ -37,9 +41,19 @@ public class PlayNoteActivity extends AppCompatActivity {
         SongNoteDetails songNote = songNotes.get(noteIndex);
 
         // !! stick this on screen for minutes:seconds
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+
         NoteDetails note = songNote.note;
         noteToPlay.setText(note.getNoteName());
         noteToPlay.setBackgroundColor(note.getNoteColor().hashCode());
+        noteToPlay.setGravity(Gravity.CENTER);
+        noteToPlay.setPadding(50, 50, 10, 10);
+        Log.d("Dimensions: " , width +"width, " + height + "height");
+
 
         final int index = noteIndex + 1;
 
@@ -50,6 +64,7 @@ public class PlayNoteActivity extends AppCompatActivity {
                 intent.putExtra("SongNotes", songNotes);
                 intent.putExtra("NoteIndex", index);
                 startActivity(intent);
+                //mic()
             }
         }, songNote.seconds*1000+songNote.minutes*60*1000);
     }

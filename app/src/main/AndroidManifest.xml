@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.apolcz.mysong">
-
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,5 +20,6 @@
         <activity android:name = ".ViewSongActivity"></activity>
         <activity android:name = ".SongActivity"></activity>
         <activity android:name = ".PlayNoteActivity"></activity>
+        <activity android:name = ".TestSoundActivity"></activity>
     </application>
 </manifest>

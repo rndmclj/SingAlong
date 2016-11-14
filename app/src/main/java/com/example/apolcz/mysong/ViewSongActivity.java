@@ -40,7 +40,7 @@ public class ViewSongActivity extends AppCompatActivity {
         songView = (ListView) findViewById(R.id.songList);
         playSong = (Button) findViewById(R.id.playSong);
         songView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        //songView.setSelector(Drawable selector);
+
         try {
             getSongsDB();
         }
@@ -52,7 +52,6 @@ public class ViewSongActivity extends AppCompatActivity {
         playSong.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-             //String songName = selectedSong.getSongName();
                 Intent intent = new Intent(ViewSongActivity.this, PlayNoteActivity.class);
                 intent.putExtra("SongNotes", new ArrayList<SongNoteDetails>(selectedSong.songNotesList));
                 intent.putExtra("NoteIndex", 0);

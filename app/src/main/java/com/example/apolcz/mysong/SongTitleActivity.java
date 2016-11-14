@@ -35,10 +35,7 @@ public class SongTitleActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.nextButton){
-
-            //bundle.putString("songTitle",songTitle.getText().toString());
             Intent intent = new Intent(this, SongActivity.class);
-            //intent.putExtras(bundle);
             SongDetails song = new SongDetails();
             song.songName = songTitle.getText().toString();
             intent.putExtra("SongDetails", song);
